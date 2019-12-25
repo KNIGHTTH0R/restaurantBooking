@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12 col-sm-12">
+
+
+            <form action="/search" method="POST" name="formSearch" class="form-inline">
+
+                <div class='form-group' >
+                    <input type='text' autocomplete="off" autofocus placeholder="Search using name" id="n" name="name" class="form-control" />
+
+                </div>
+
+             <button class=" btn-primary btn" id="dateBtn" name="search" value="" type="submit">Search bookings</button>
+
+            </form>
+            <div id="result" class="list-group">
+
+            </div>
+                <div class="alert alert-info m">
+
+                            <div class="table-responsive">
+
+                        <table class="table table-striped">
+                            <tr><td>First Name</td> <td>Last Name</td> <td> Phone</td> <td>Number of Guests</td> <td>Date</td> <td>Time</td> </tr>
+                             {% for r in row %}
+
+                       <tr> <td> {{r[0]}}</td> <td> {{r[1]}}</td> <td> {{r[2]}}</td> <td> {{r[3]}}</td> <td> {{r[4]}}</td> <td> {{r[5]}}</td> <td> {{r[6]}}</td>
+                      </tr>
+                      {% endfor %}
+                        </table>
+
+
+                        </div>
+
+                </div>
+        </div>
+    </div>
+
+</div> <!-- end of main container -->
+
+
+    <script>
+
+$( document ).ready(function()
+{
+    input = document.getElementById("n");
+    keyPressCounter = 0;
+
+    var counter;
+
+    $("#n").keyup(function()
+    {
+       keyPressCounter = $("#n").val().length
+
+        if(keyPressCounter >= 2)
+        {
+            var resultArray = [];
+
+            $.get("/search?name=" + input.value + '%', function(response)
+            {
+
+                for(var i = 0; i <= response.length; i++)
+                {
+
+                    if($("#result").children().length < response.length )
+                    {
+                        if (response[i] != undefined)
+                        {
+                           resultArray.push(response[i]);
+
+                            $("#result").append('<p class="list-group-item">' + resultArray[i] + '</p>' ); // change this to unique array
+                            $('<br>');
+                        }
+
+
+
+                    }
+
+
+
+                }
+
+
+
+
+            });
+
+
+        }
+        else
+        {
+            $("#result").text("");
+
+
+        }
+
+    });
+});
+
+
+
+
+</script>
+
+
+
+{% endblock %}
+
+

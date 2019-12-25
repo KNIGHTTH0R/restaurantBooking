@@ -1,0 +1,282 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+
+
+
+
+<div class="container-fluid">
+
+    <div class="row " id="calendarRow">
+         <div class="col-md-9 col-xs-12 col-sm-12">
+
+        <form action="/" method="GET" name="formDate" class="form-inline">
+
+             <div class='form-group' >
+                <input type='text' autocomplete="off" placeholder="Select Date" name="date" id='datetimepicker1' class="form-control" />
+            </div>
+
+             <button class="btn btn-primary btn" id="dateBtn" name="submitDate" value="subDate" type="submit">Select Date To View Bookings</button>
+
+        </form>
+        <div class="alert alert-info m" id="extractDate">Selected Date: {{formDate}}</div>
+         </div>
+
+        <div class="col-md-3 col-sm-12" >
+            <h2 >View And Manage Today's Bookings:</h2>
+
+
+
+
+        <div id="hiddenEdit" class="collapse" >
+            <form action="/delete" method="POST" name="deleteForm">
+
+                <input type="hidden" name="fullName" class="fullName">
+                 <input type="hidden" name="date" class="date" id="t1">
+                  <input type="hidden" name="time" class="time">
+                   <input type="hidden" name="tableNumber" class="tableNumber">
+
+            <input  type="submit" value="Clear Table" class="btn p"> <br>
+            </form>
+
+            <form action="/update" method="POST" name="updateForm">
+
+                 <input type="hidden" name="fullName" class="fullName">
+                 <input type="hidden" name="date" class="date" id="t2">
+                  <input type="hidden" name="time" class="time">
+                   <input type="hidden" name="tableNumber" class="tableNumber">
+
+           <input type="submit" value="Update Reservation" class="btn p"> <br>
+            </form>
+
+            <form action="/foodOrder" method="POST" name="foodForm">
+
+                 <input type="hidden" name="fullName" class="fullName">
+                 <input type="hidden" name="date" class="date">
+                  <input type="hidden" name="time" class="time">
+                   <input type="hidden" name="tableNumber" class="tableNumber">
+
+            <input type="submit" value="Send food and drink order" class="btn p"> <br>
+            </form>
+        </div>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-9 col-sm-8">
+
+            <button type="button" class="grid" data-toggle="modal"  value="1" data-target="#myModal">Table 1 Seats: 2</button>
+            <button type="button" class="grid" data-toggle="modal"  value="2" data-target="#myModal">Table 2 Seats: 2</button>
+            <button type="button" class="grid" data-toggle="modal"  value="3" data-target="#myModal">Table 3 Seats: 2</button>
+            <button type="button" class="grid" data-toggle="modal"  value="4" data-target="#myModal">Table 4 Seats: 2</button>
+            <button type="button" class="grid" data-toggle="modal"  value="5" data-target="#myModal">Table 5 Seats: 4</button>
+            <button type="button" class="grid" data-toggle="modal"  value="6" data-target="#myModal">Table 6 Seats: 4</button>
+            <button type="button" class="grid" data-toggle="modal"  value="7" data-target="#myModal">Table 7 Seats: 4</button>
+            <button type="button" class="grid" data-toggle="modal"  value="8" data-target="#myModal">Table 8 Seats: 2</button>
+            <button type="button" class="grid" data-toggle="modal"  value="9" data-target="#myModal">Table 9 Seats: 10</button>
+            <button type="button" class="grid" data-toggle="modal"  value="10" data-target="#myModal">Table 10 Seats: 8</button>
+            <button type="button" class="grid" data-toggle="modal"  value="11" data-target="#myModal">Table 11 Seats: 2</button>
+            <button type="button" class="grid" data-toggle="modal"  value="12" data-target="#myModal">Table 12 Seats: 3</button>
+            <button type="button" class="grid" data-toggle="modal"  value="13" data-target="#myModal">Table 13 Seats: 4</button>
+            <button type="button" class="grid" data-toggle="modal"  value="14" data-target="#myModal">Table 14 Seats: 6</button>
+            <button type="button" class="grid" data-toggle="modal"  value="15" data-target="#myModal">Table 15 Seats: 2</button>
+            <button type="button" class="grid" data-toggle="modal"  value="16" data-target="#myModal">Table 16 Seats: 4</button>
+            <button type="button" class="grid" data-toggle="modal"  value="17" data-target="#myModal">Table 17 Seats: 5</button>
+            <button type="button" class="grid" data-toggle="modal"  value="18" data-target="#myModal">Table 18 Seats: 2</button>
+            <button type="button" class="grid" data-toggle="modal"  value="19" data-target="#myModal">Table 19 Seats: 4</button>
+            <button type="button" class="grid" data-toggle="modal"  value="20" data-target="#myModal">Table 20 Seats: 4</button>
+            <button type="button" class="grid" data-toggle="modal"  value="21" data-target="#myModal">Table 21 Seats: 6</button>
+            <button type="button" class="grid" data-toggle="modal"  value="22" data-target="#myModal">Table 22 Seats: 2</button>
+            <button type="button" class="grid" data-toggle="modal"  value="23" data-target="#myModal">Table 23 Seats: 4</button>
+            <button type="button" class="grid" data-toggle="modal"  value="24" data-target="#myModal">Table 24 Seats: 5</button>
+            <button type="button" class="grid" data-toggle="modal"  value="25" data-target="#myModal">Table 25 Seats: 4</button>
+            <button type="button" class="grid" data-toggle="modal"  value="26" data-target="#myModal">Table 26 Seats: 2</button>
+            <button type="button" class="grid" data-toggle="modal"  value="27" data-target="#myModal">Table 27 Seats: 7</button>
+            <button type="button" class="grid" data-toggle="modal"  value="28" data-target="#myModal">Table 28 Seats: 3</button>
+            <button type="button" class="grid" data-toggle="modal"  value="29" data-target="#myModal">Table 29 Seats: 2</button>
+            <button type="button" class="grid" data-toggle="modal"  value="30" data-target="#myModal">Table 30 Seats: 2</button>
+
+
+
+
+
+
+
+        </div>
+
+            <div class="col-md-3 col-sm-4" id="sidebar">
+
+                <ul class="scroll list-group embed-responsive">
+
+
+
+                    {% for t in tables  %}
+                   <li class="list-group-item orng showBookingMenu" data-toggle="collapse" data-target="#hiddenEdit">Name: {{t[1]}} {{t[2]}}</li>
+
+
+                        <ul class="list-group">
+                            <li class="list-group-item timeInput">Time: {{t[7] }}</li>
+                            <li class="list-group-item ">Number Of Guests: {{t[8]}}</li>
+                            <li class="list-group-item tableNumberInput" >Table Number: {{t[6]}}</li>
+                            <li class="list-group-item ">Table is available from: {{t[9]}}</li>
+
+                        </ul>
+                         <br>
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+    </div>
+
+
+<div class="container  d-flex justify-content-center c">
+<!-- Modal -->
+    <div class="modal fade z " id="myModal" role="dialog" >
+        <div class="modal-dialog ">
+        <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close " data-dismiss="modal">&times;</button>
+              <h4 class="modal-title w-100 text-center">Table Reservation</h4>
+
+            </div>
+                 <div class="modal-body">
+
+                        <form action="/" method="POST" name="form">
+                            <div class="form-group">
+                                <input autocomplete="on" autofocus class="form-control" id="inputFrom" name="firstName" placeholder="First Name" type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <input autocomplete="off" class="form-control" name="lastName" placeholder="Last Name" type="text">
+                            </div>
+
+                             <div class="form-group">
+                                <input autocomplete="off" class="form-control" name="phone" placeholder="Phone Number" type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <input autocomplete="off" class="form-control" name="email" placeholder="Email address" type="email">
+                            </div>
+
+                            <div class='form-group' >
+                                <input type='text' autocomplete="off" placeholder="Reservation Date" name="date" id='datetimepicker2' class="form-control" />
+                            </div>
+
+                                 <div class="form-group">
+                                <input autocomplete="off" class="form-control" name="guest" placeholder="Number Of Guests" type="number" min="1" step="1">
+                                </div>
+
+                            <input type="hidden" id="tableInput" name="tableN" />
+
+                            <button class="btn btn-primary" id="btn" name="submitButton" value="sub" type="submit">Book table</button>
+
+
+                        </form>
+
+
+
+                </div>
+                <div class=" modal-body border-top">
+              <button type="button" class=" btn orange leftButton" id="modalCloseBottom" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</div> <!-- end of main container -->
+
+
+
+
+
+
+    <script>
+    $( document ).ready(function()
+    {
+        var name;
+        var date;
+        var tableNumber;
+        var time;
+
+
+        $( "#hiddenEdit" ).dialog({ autoOpen: false
+
+        });
+
+        $( ".showBookingMenu" ).click(function()
+        {
+            name = $(this).text();
+            $(".fullName").val(name);
+
+            $(".time").val( $(".timeInput").text().slice(-5) );
+            $(".tableNumber").val( $(".tableNumberInput").text().slice(-5) );
+
+            $(".date").val( $("#extractDate").text() );
+
+
+
+
+            $( "#hiddenEdit" ).dialog( "open" );
+
+        });
+
+
+
+
+
+        $(".grid").click(function()
+        {
+            $("#tableInput").val(this.value);
+        });
+
+
+        $('#datetimepicker1').datepicker(
+            {
+                dateFormat: 'dd.mm.yy',
+        });
+
+        $('#datetimepicker2').datetimepicker(
+            {
+
+                minTime: '10:00',
+                maxTime: '22:01',
+                format:'d.m.Y H:i',
+
+        });
+
+
+        $( ".grid" ).hover(function()
+        {
+            $(this).addClass('shadow-lg').css('cursor', 'pointer');
+        },
+        function()
+        {
+            $(this).removeClass('shadow-lg');
+        });
+
+
+    });
+
+
+</script>
+
+
+
+{% endblock %}
+
+
