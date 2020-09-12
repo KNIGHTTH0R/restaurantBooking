@@ -1,2 +1,2 @@
-# restaurantBooking
+# restaurant Booking
 restaurant booking system
